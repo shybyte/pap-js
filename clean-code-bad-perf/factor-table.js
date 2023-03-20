@@ -13,7 +13,7 @@ function createShapes(n) {
   return Array.from({length: n}, (_v, i) => randomShape(i))
 }
 
-const FACTOR_TABLE = [1, 1, 0.5, Math.PI];
+const FACTOR_TABLE = new Float64Array([1, 1, 0.5, Math.PI]);
 
 function calculateArea(shape) {
   return FACTOR_TABLE[shape.type] * shape.width * shape.height;
@@ -72,3 +72,5 @@ for (let i = 0; i < 6; i++) {
 }
 
 console.log('minTime:', minTime)
+
+export {}
