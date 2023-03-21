@@ -30,8 +30,6 @@ async function processLineByLine(file, callback) {
     await events.once(rl, 'close');
 
     console.log('Reading file line by line with readline done.');
-    const used = process.memoryUsage().heapUsed / 1024 / 1024;
-    console.log(`The script uses approximately ${Math.round(used * 100) / 100} MB`);
   } catch (err) {
     console.error(err);
   }
@@ -80,8 +78,13 @@ for (const pair of pairs) {
 const Average = Sum / pairCount
 const EndTime = performance.now()
 
+const used = process.memoryUsage().rss / 1024 / 1024;
+console.log(`The script uses approximately ${Math.round(used * 100) / 100} MB`);
+console.log('pairCount:', pairCount);
 console.log('Average:', Average);
+console.log('Read Time:', midTime - startTime);
 console.log('Math Time:', EndTime - midTime);
+console.log('Complete Time:', EndTime - startTime);
 
 
 
