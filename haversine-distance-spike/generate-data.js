@@ -6,7 +6,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const args = process.argv.slice(2);
-const n = parseInt(args[1]) || 10_000_000;
+const n = parseInt(args[1]) || 1_000_000;
 const data = {
   points: Array.from({length: n}, () => (
       {

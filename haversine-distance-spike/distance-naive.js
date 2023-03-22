@@ -71,10 +71,17 @@ function HaversineOfDegrees(x0, y0, x1, y1, R) {
 }
 
 
-for (const pair of pairs) {
+// for (const pair of pairs) {
+//   Sum += HaversineOfDegrees(pair.x0, pair.y0, pair.x1, pair.y1, EarthRadiuskm)
+// }
+
+for (let i = 0; i < pairs.length; i++) {
+  const pair = pairs[i];
   Sum += HaversineOfDegrees(pair.x0, pair.y0, pair.x1, pair.y1, EarthRadiuskm)
-  pairCount += 1
 }
+
+pairCount = pairs.length;
+
 const Average = Sum / pairCount
 const EndTime = performance.now()
 
