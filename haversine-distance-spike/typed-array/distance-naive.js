@@ -40,9 +40,8 @@ let pairCount = 0;
 let Sum = 0
 for (let i = 0; i < pairs.length; i += 4) {
   Sum += HaversineOfDegrees(pairs[i], pairs[i + 1], pairs[i + 2], pairs[i + 3], EarthRadiuskm);
-  pairCount += 1
 }
-
+pairCount = pairs.length / 4;
 
 const Average = Sum / pairCount
 const EndTime = performance.now()
