@@ -50,6 +50,7 @@ const EndTime = performance.now()
 const used2 = process.memoryUsage().rss / 1024 / 1024;
 console.log(`The script uses approximately ${Math.round(used2 * 100) / 100} MB`);
 
+console.log('Sum:', Sum);
 console.log('Average:', Average);
 console.log('pairCount:', pairCount);
 console.log('Read Time:', midTime - startTime);
