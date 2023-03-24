@@ -11,7 +11,7 @@ function createWorker() {
   return new Worker(__dirname + '/distance-worker')
 }
 
-const workers = Array.from({length: 4}, () => createWorker());
+const workers = Array.from({length: 8}, () => createWorker());
 
 function waitMs(timeMs) {
   return new Promise(resolve => {
@@ -24,13 +24,16 @@ await waitMs(100);
 const startTime = performance.now();
 
 const buf = fs.readFileSync(__dirname + '/data/data-1000000.float64');
+const pairs = new Float64Array(buf.buffer, buf.byteOffset, buf.length / Float64Array.BYTES_PER_ELEMENT);
+
+const startTimeCopy = performance.now();
 const sharedBuffer = new SharedArrayBuffer(buf.length);
 const pairsShared = new Float64Array(sharedBuffer);
-const pairs = new Float64Array(buf.buffer, buf.byteOffset, buf.length / Float64Array.BYTES_PER_ELEMENT);
 pairsShared.set(pairs, 0);
+console.log('Duration copy into shared buffer:', performance.now() - startTimeCopy);
 
 const midTime = performance.now()
-console.log(`reading needed ${(midTime - startTime) / 1000} seconds.`);
+console.log(`reading needed ${(midTime - startTime)} ms.`);
 
 
 const used = process.memoryUsage().rss / 1024 / 1024;
