@@ -10,6 +10,14 @@ const __dirname = path.dirname(__filename);
 
 const EarthRadiuskm = 6371
 
+function waitMs(timeMs) {
+  return new Promise(resolve => {
+    setTimeout(resolve, timeMs);
+  })
+}
+
+await waitMs(100);
+
 const startTime = performance.now();
 
 const buf = fs.readFileSync(__dirname + '/data/data-1000000.float64');
