@@ -22,7 +22,7 @@ function parseJson(fileContent) {
     const char = fileContent[i];
     // console.log('char:', char)
     const charCode = char.charCodeAt(0);
-    if ((fileContent[i - 1] === ':' || fileContent[i - 1] === ' ') && charCode0 <= charCode && charCode <= charCode9) {
+    if ((fileContent[i - 1] === ':' || fileContent[i - 1] === ' ') && (charCode0 <= charCode && charCode <= charCode9 || char === '-')) {
       const numberStartIndex = i;
       i += 1;
       while (i < fileContent.length) {
