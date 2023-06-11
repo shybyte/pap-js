@@ -6,7 +6,7 @@ import {performance} from "perf_hooks";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const EarthRadiuskm = 6371
+const EarthRadiuskm = 6372.8;
 let Sum = 0
 
 
@@ -14,7 +14,7 @@ let Sum = 0
 
 const startTime = performance.now();
 
-const data = JSON.parse(fs.readFileSync(__dirname + '/data/data-1000000.json', 'utf8'));
+const data = JSON.parse(fs.readFileSync(__dirname + '/data/data-100000.json', 'utf8'));
 const pairs = data.pairs;
 let pairCount = 0;
 

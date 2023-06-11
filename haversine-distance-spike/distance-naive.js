@@ -8,7 +8,7 @@ import {performance} from "perf_hooks";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-const EarthRadiuskm = 6371
+const EarthRadiuskm = 6372.8
 let Sum = 0
 
 // Will fail with Error: Cannot create a string longer than 0x1fffffe8 characters
@@ -40,7 +40,7 @@ const startTime = performance.now();
 
 const pairs = [];
 let pairCount = 0;
-await processLineByLine(__dirname + '/data/data-1000000.json', (line, i) => {
+await processLineByLine(__dirname + '/data/data-100000.json', (line, i) => {
   if (line.startsWith('{"x0":')) {
     const withoutCommaAtEnd = line.replace(/\},/, '}');
     const pair = JSON.parse(withoutCommaAtEnd);
