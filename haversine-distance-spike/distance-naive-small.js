@@ -14,7 +14,16 @@ let Sum = 0
 
 const startTime = performance.now();
 
-const data = JSON.parse(fs.readFileSync(__dirname + '/data/data-100000.json', 'utf8'));
+const fileContent = fs.readFileSync(__dirname + '/data/data-1000000.json', 'utf8');
+
+const afterReadTime = performance.now();
+
+
+const data = JSON.parse(fileContent);
+
+const afterParseTime = performance.now();
+
+
 const pairs = data.pairs;
 let pairCount = 0;
 
@@ -50,7 +59,8 @@ const used = process.memoryUsage().rss / 1024 / 1024;
 console.log(`The script uses approximately ${Math.round(used * 100) / 100} MB`);
 console.log('pairCount:', pairCount);
 console.log('Average:', Average);
-console.log('Read Time:', midTime - startTime);
+console.log('Read Time:', afterReadTime - startTime);
+console.log('Parse Time:', afterParseTime - afterReadTime);
 console.log('Math Time:', EndTime - midTime);
 console.log('Complete Time:', EndTime - startTime);
 

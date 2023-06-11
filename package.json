@@ -5,6 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "run-distance": "node haversine-distance-spike/distance-parser.js",
+    "run-naive-small": "node haversine-distance-spike/distance-naive-small.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
