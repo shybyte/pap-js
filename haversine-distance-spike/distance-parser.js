@@ -51,7 +51,7 @@ function parseJson(fileContent) {
 
 const startTime = performance.now();
 
-const fileContent = fs.readFileSync(__dirname + '/data/data-1000000.json', 'utf8');
+const fileContent = fs.readFileSync(__dirname + '/data/data-1_000_000.json', 'utf8');
 
 const afterReadTime = performance.now();
 
